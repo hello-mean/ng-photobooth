@@ -1,0 +1,1 @@
+"use strict";angular.module("hellomean.photobooth",[]).provider("photobooth",function(){var a,b=/^data:image\/(png|gif|jpe?g);base64,(.*)$/;this.setPostUrl=function(b){a=b},this.$get=["$http",function(c){return{saveDataUrl:function(d){var e=d.match(b);if(!e)throw new Error("Cannot save non-image data");return c.post(a,{image:e[2],ext:e[1]})}}}]});
