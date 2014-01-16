@@ -50,7 +50,7 @@ describe('photo-preview', function() {
     spyOn($scope, '$emit').andCallThrough();
     $scope.$emit('photobooth:start');
     expect($scope.$emit.mostRecentCall.args[0]).toBe('photobooth:cameraStart');
-    expect($scope.$emit.mostRecentCall.args[1][0]).toEqual(element.find('video')[0]);
+    expect($scope.$emit.mostRecentCall.args[1]).toEqual(element.find('video')[0]);
   });
 
   it("should trigger the photobooth:cameraError event when there is a camera error", function() {

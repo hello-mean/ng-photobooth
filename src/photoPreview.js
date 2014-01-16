@@ -4,7 +4,7 @@ angular.module('ng-photobooth')
     return function(scope, elem, attrs) {
       function onCameraStart() {
         elem.addClass(attrs.cameraOnClass);
-        scope.$emit('photobooth:cameraStart', elem.find('video'));
+        scope.$emit('photobooth:cameraStart', elem.find('video')[0]);
       }
 
       function onCameraError(code) {
@@ -14,7 +14,7 @@ angular.module('ng-photobooth')
       scope.$on('photobooth:start', function() {
         elem.html('<video autoplay></video>' +
                   '<canvas></canvas>');
-        webcam.start(elem.find('video'), onCameraStart, onCameraError);
+        webcam.start(elem.find('video')[0], onCameraStart, onCameraError);
       });
     };
   }]);
