@@ -2,7 +2,7 @@
 angular.module('ng-photobooth')
   .service('webcam', function() {
     return  {
-      start: function(video, successFn) {
+      start: function(video, successFn, errorFn) {
         navigator.getUserMedia(
           {
             video: true,
@@ -12,7 +12,9 @@ angular.module('ng-photobooth')
           function(stream) {
             video.src = window.URL.createObjectURL(stream);
             successFn(stream);
-          }
+          },
+
+          errorFn
         );
       }
     };
