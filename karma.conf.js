@@ -15,6 +15,7 @@ module.exports = function(config) {
       'components/lodash/dist/lodash.min.js',
       'components/angular/angular.js',
       'components/angular-mocks/angular-mocks.js',
+      'src/photobooth.js',
       'src/*.js',
       'test/unit/*.spec.js'
     ],
