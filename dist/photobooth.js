@@ -51,3 +51,40 @@ angular.module('hellomean.photobooth')
       });
     };
   });
+
+'use strict';
+angular.module('hellomean.photobooth')
+  .directive('photoPreview', function() {
+    return function(scope, elem) {
+      scope.$on('photobooth:start', function() {
+        elem.html('<video autoplay></video>' +
+                  '<canvas></canvas>');
+      });
+    };
+  });
+
+'use strict';
+angular.module('hellomean.photobooth')
+  .service('webcam', function() {
+    return  {
+      start: function(video, successFn) {
+        navigator.getUserMedia(
+          {
+            video: true,
+            audio: false
+          },
+ 
+          function(stream) {
+            video.src = window.URL.createObjectURL(stream);
+            successFn(stream);
+          }
+        );
+      }
+    };
+  })
+  .run(function() {
+    navigator.getUserMedia = navigator.getUserMedia ||
+                             navigator.webkitGetUserMedia ||
+                             navigator.mozGetUserMedia ||
+                             navigator.msGetUserMedia;
+  });
