@@ -40,7 +40,7 @@ module.exports = function (grunt) {
     uglify: {
       dist: {
         files: {
-          '<%= photobooth.dist %>/photobooth.js': [
+          '<%= photobooth.dist %>/photobooth.min.js': [
           '<%= photobooth.dist %>/photobooth.js'
           ]
         }
