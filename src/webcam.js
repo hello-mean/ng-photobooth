@@ -1,5 +1,5 @@
 'use strict';
-angular.module('hellomean.photobooth')
+angular.module('ng-photobooth')
   .service('webcam', function() {
     return  {
       start: function(video, successFn) {

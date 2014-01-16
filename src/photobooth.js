@@ -1,5 +1,5 @@
 'use strict';
-angular.module('hellomean.photobooth', [])
+angular.module('ng-photobooth', [])
   .provider('photobooth', function() {
     var postUrl,
         pattern = /^data:image\/(png|gif|jpe?g);base64,(.*)$/;

@@ -1,5 +1,5 @@
 'use strict';
-angular.module('hellomean.photobooth')
+angular.module('ng-photobooth')
   .directive('photoPreview', function() {
     return function(scope, elem) {
       scope.$on('photobooth:start', function() {

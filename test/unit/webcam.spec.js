@@ -1,7 +1,7 @@
 'use strict';
 
 describe('webcam', function() {
-  beforeEach(module('hellomean.photobooth'));
+  beforeEach(module('ng-photobooth'));
 
   var camera,
       video = {},

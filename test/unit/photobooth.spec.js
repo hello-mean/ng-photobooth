@@ -16,7 +16,7 @@ describe('photobooth', function() {
                 '/W8/TsKfM3Gdbz85p//W+9XmsfLGp+ljWfk13NJ+vCXEwkN1zbrNN0uracPTmelDxpP7HO7Buu/Yhx7YelRNlyvKx9sNvXvggg=='
     , stripped = dataUrl.substring(22);
 
-  beforeEach(module('hellomean.photobooth'));
+  beforeEach(module('ng-photobooth'));
 
   beforeEach(module(function(photoboothProvider){
     photoboothProvider.setPostUrl(postUrl);

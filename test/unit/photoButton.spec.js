@@ -1,7 +1,7 @@
 'use strict';
 
 describe('photo-button', function() {
-  beforeEach(module('hellomean.photobooth'));
+  beforeEach(module('ng-photobooth'));
 
   var $compile,
       element,

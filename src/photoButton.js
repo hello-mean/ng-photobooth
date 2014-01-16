@@ -1,5 +1,5 @@
 'use strict';
-angular.module('hellomean.photobooth')
+angular.module('ng-photobooth')
   .directive('photoButton', function() {
     var defaultClass = 'is-active';
 

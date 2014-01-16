@@ -1,5 +1,5 @@
 'use strict';
-angular.module('hellomean.photobooth', [])
+angular.module('ng-photobooth', [])
   .provider('photobooth', function() {
     var postUrl,
         pattern = /^data:image\/(png|gif|jpe?g);base64,(.*)$/;
@@ -22,7 +22,7 @@ angular.module('hellomean.photobooth', [])
   });
 
 'use strict';
-angular.module('hellomean.photobooth')
+angular.module('ng-photobooth')
   .directive('photoButton', function() {
     var defaultClass = 'is-active';
 
@@ -53,7 +53,7 @@ angular.module('hellomean.photobooth')
   });
 
 'use strict';
-angular.module('hellomean.photobooth')
+angular.module('ng-photobooth')
   .directive('photoPreview', function() {
     return function(scope, elem) {
       scope.$on('photobooth:start', function() {
@@ -64,7 +64,7 @@ angular.module('hellomean.photobooth')
   });
 
 'use strict';
-angular.module('hellomean.photobooth')
+angular.module('ng-photobooth')
   .service('webcam', function() {
     return  {
       start: function(video, successFn) {
