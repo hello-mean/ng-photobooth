@@ -10,7 +10,6 @@ describe('photobooth', function() {
   beforeEach(inject(function(_$rootScope_, _$compile_) {
     $scope = _$rootScope_;
     $compile = _$compile_;
-    //spyOn($scope, '$emit');
   }));
 
   describe('photo-button', function() {
