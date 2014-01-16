@@ -61,10 +61,14 @@ angular.module('ng-photobooth')
         scope.$emit('photobooth:cameraStart', elem.find('video'));
       }
 
+      function onCameraError(code) {
+        scope.$emit('photobooth:cameraError', code);
+      }
+
       scope.$on('photobooth:start', function() {
         elem.html('<video autoplay></video>' +
                   '<canvas></canvas>');
-        webcam.start(elem.find('video'), onCameraStart);
+        webcam.start(elem.find('video'), onCameraStart, onCameraError);
       });
     };
   }]);
