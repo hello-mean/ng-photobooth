@@ -16,5 +16,13 @@ angular.module('ng-photobooth')
                   '<canvas></canvas>');
         webcam.start(elem.find('video')[0], onCameraStart, onCameraError);
       });
+
+      scope.$on('photobooth:capture', function() {
+        webcam.capture(
+          elem.find('video')[0],
+          elem.find('canvas')[0],
+          attrs.previewType || 'image/png'
+        );
+      });
     };
   }]);

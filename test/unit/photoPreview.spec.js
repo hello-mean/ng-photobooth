@@ -17,11 +17,11 @@ describe('photo-preview', function() {
   }));
 
   beforeEach(function() {
-    var prev  = '<div photo-preview camera-on-class="is-on"></div>';
+    var prev  = '<div photo-preview camera-on-class="is-on" preview-type="image/jpeg"></div>';
     element = $compile(prev)($scope);
   });
 
-  describe('photobooth:start event', function() {
+  describe('on photobooth:start event', function() {
     it("should replace element html with video and canvas on photobooth:start event", function() {
       $scope.$emit('photobooth:start');
       var video = element.find('video'),
@@ -62,6 +62,32 @@ describe('photo-preview', function() {
       expect($scope.$emit.mostRecentCall.args[1]).toBe('error');
     });
    
+  });
+
+  describe('on photobooth:capture event' , function() {
+    beforeEach(function() {
+      $scope.$emit('photobooth:start');
+    });
+
+    it('should should call webcam#capture with the video and canvas element', function() {
+      spyOn(camera, 'capture');
+      $scope.$emit('photobooth:capture');
+      expect(camera.capture.mostRecentCall.args[0]).toEqual(element.find('video')[0]);
+      expect(camera.capture.mostRecentCall.args[1]).toEqual(element.find('canvas')[0]);
+    }); 
+
+    it('should call webcam#capture with the image type present in the preview-type attr' , function() {
+      spyOn(camera, 'capture');
+      $scope.$emit('photobooth:capture');
+      expect(camera.capture.mostRecentCall.args[2]).toEqual('image/jpeg');
+    });
+
+    it('should call webcam#capture with a default image type if not on attribute' , function() {
+      element = $compile('<div photo-preview></div>')($scope);
+      spyOn(camera, 'capture');
+      $scope.$emit('photobooth:capture');
+      expect(camera.capture.mostRecentCall.args[2]).toEqual('image/png');
+    });
   });
 
 });
