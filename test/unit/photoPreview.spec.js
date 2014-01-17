@@ -47,6 +47,12 @@ describe('photo-preview', function() {
       expect(element.hasClass('is-on')).toBe(true);
     });
 
+    it('should set the element class to a default active class on photobooth:start', function() {
+      element = $compile('<div photo-preview></div>')($scope);
+      $scope.$emit('photobooth:start');
+      expect(element.hasClass('is-active')).toBe(true);
+    });
+
     it("should emit a photobooth:cameraStart event with the video when the camera starts", function() {
       spyOn($scope, '$emit').andCallThrough();
       $scope.$emit('photobooth:start');
